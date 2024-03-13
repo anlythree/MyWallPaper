@@ -30,17 +30,18 @@ export default function TabLayout() {
                 name="gallery"
                 options={{
                     title: 'Gallery',
-                    tabBarIcon: ({color}) => <TabBarIcon name="code" color={color}/>,
+                    tabBarIcon: ({color}) => <TabBarIcon name="th" color={color}/>,
                 }}
             />
             <Tabs.Screen
                 name="index"
                 options={{
                     title: 'Today',
-                    tabBarIcon: ({color}) => <TabBarIcon name="code" color={color}/>,
+                    tabBarIcon: ({color}) => <TabBarIcon name="home" color={color}/>,
                     // headerRight可以在页面的右上角加一个“i”的圆形图标,点击会跳转到modal.tsx上
                     headerRight: () => (
-                        <Link href="/modal" asChild>
+                        // 这里的wallpaper是链接到app/_layout.tsx中的配置
+                        <Link href="/wallpaper" asChild>
                             <Pressable>
                                 {({pressed}) => (
                                     <FontAwesome
@@ -59,7 +60,7 @@ export default function TabLayout() {
                 name="me"
                 options={{
                     title: 'Me',
-                    tabBarIcon: ({color}) => <TabBarIcon name="code" color={color}/>,
+                    tabBarIcon: ({color}) => <TabBarIcon name="user" color={color}/>,
                 }}
             />
         </Tabs>

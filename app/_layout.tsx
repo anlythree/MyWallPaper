@@ -47,11 +47,15 @@ export default function RootLayout() {
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
+  /**
+   * 新添加的页面需要在这里配置，配置之后可以直接用前边name配置的别名来引用
+   */
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="wallpaper" options={{ presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>
   );

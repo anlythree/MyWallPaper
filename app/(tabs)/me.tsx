@@ -8,7 +8,10 @@ export default function TabTwoScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Me</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/me.tsx" />
+      {/*<EditScreenInfo path="app/(tabs)/me.tsx" />*/}
+      <Text>设置主题风格：黑色/白色；查看收藏的墙纸</Text>
+      <Text>收藏的墙纸：只显示数量和略图，点击跳转gennery</Text>
+      <Text>语言：中文</Text>
     </View>
   );
 }

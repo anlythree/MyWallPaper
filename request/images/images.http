@@ -1,0 +1,18 @@
+##
+GET https://bing.com/th?
+    id=OHR.JinliStreet_ZH-CN3020276206_UHD.jpg&
+    rf=LaDigue_UHD.jpg&
+    pid=hp&w=3840&h=2160&rs=1&c=4
+
+
+### 必应壁纸接口分页接口 idx是第几页，n是一页返回的数量
+GET https://cn.bing.com/HPImageArchive.aspx?
+    format=js&
+    idx=0&
+    n=3&
+    nc=1614319565639&
+    pid=hp&
+    FORM=BEHPTB&
+    uhd=1&
+    uhdwidth=3840&
+    uhdheight=2160
