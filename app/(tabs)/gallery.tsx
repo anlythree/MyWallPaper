@@ -2,7 +2,7 @@ import {Button, Image, StyleSheet} from 'react-native';
 
 import {Text, View} from '@/components/Themed';
 import {FlashList} from "@shopify/flash-list";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {getBingWallPapers} from "@/utils/api";
 import React from 'react';
 import {Tabs} from 'expo-router';
@@ -18,9 +18,14 @@ export default function TabTwoScreen() {
      * @param size
      */
     async function handleGetAllWallPaper(size: number) {
-        const allWallPaperList = await getBingWallPapers({n: 8})
+        const allWallPaperList = await getBingWallPapers({n: size})
         setWallPaperList(allWallPaperList)
     }
+
+    // 通过useEffect的方式配置初次进入页面时就加载壁纸列表
+    useEffect(() => {
+        handleGetAllWallPaper(8)
+    }, [])
 
     return (
         <>
@@ -28,7 +33,7 @@ export default function TabTwoScreen() {
                 options={{
                     // 重新定义一遍index页面右上角的图标
                     headerRight: () => (
-                        <Pressable onPress={() => handleGetAllWallPaper(10)}>
+                        <Pressable onPress={() => handleGetAllWallPaper(8)}>
                             {({pressed}) => (
                                 <FontAwesome
                                     name="refresh"
@@ -52,12 +57,15 @@ export default function TabTwoScreen() {
                                renderItem={({item}: { item: any }) => {
                                    console.log(item)
                                    return (
-                                       <View style={{flexDirection: 'row', flex: 1, margin: 8}}>
+                                       <View style={{flexDirection: 'row', flex: 1, margin: 8, gap: 20}}>
                                            <Image source={{uri: `https://bing.com${item.url}`}}
-                                                  style={{width: 100, height: 100}}/>
-                                           <View>
-                                               <Text style={{fontSize: 25}}>{item.title}</Text>
-                                               <Text style={{fontSize: 15}}>{item.copyright}</Text>
+                                               // borderRadius是加圆角的，如果要在view上加圆角还要加overflow:hide,让超出部分隐藏掉
+                                                  style={{width: 100, height: 100, borderRadius: 8,}}/>
+                                           {/*不加flex:1的话文字会被屏幕边缘截取掉，这种方式比直接在Text上限定width要灵活一点*/}
+                                           <View style={{flex: 1}}>
+                                               {/*numberOfLines可以限定行数，防止影响整个页面的显示效果*/}
+                                               <Text numberOfLines={2} style={{fontSize: 20}}>{item.title}</Text>
+                                               <Text numberOfLines={3} style={{fontSize: 15}}>{item.copyright}</Text>
                                            </View>
                                        </View>
                                    )
