@@ -77,7 +77,7 @@ export default function TabOneScreen() {
             <Slider style={{width: '60%'}} step={1} disabled={isLoading}
                     onValueChange={value => handleSlider(value)} minimumValue={1} maximumValue={8}/>
             <Text>wallPaperDayNum:{wallPaperDayNum}</Text>
-            <Button onPress={handleResetImage} title={'resetImage'}></Button>
+            {/*<Button onPress={handleResetImage} title={'resetImage'}></Button>*/}
         </View>
     );
 }
