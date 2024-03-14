@@ -42,6 +42,7 @@ export default function TabOneScreen() {
     const handleResetImage = async () => {
         console.log("置空图片")
         setWallPaperImage(undefined)
+        setIsLoading(false)
     }
 
     /**
