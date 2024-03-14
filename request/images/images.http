@@ -5,14 +5,13 @@ GET https://bing.com/th?
     pid=hp&w=3840&h=2160&rs=1&c=4
 
 
-### 必应壁纸接口分页接口 idx是第几页，n是一页返回的数量
+### 必应壁纸接口分页接口
+### format是格式，只有js：json xml：xml
+### idx是请求图片截止天数0:今天 -1:截止中明天 1:截止昨天（最多获取前七天的）
+### n是一页返回的数量 最多为8
+### mkt是地区
 GET https://cn.bing.com/HPImageArchive.aspx?
     format=js&
     idx=0&
     n=3&
-    nc=1614319565639&
-    pid=hp&
-    FORM=BEHPTB&
-    uhd=1&
-    uhdwidth=3840&
-    uhdheight=2160
+    mkt=zh-CN
