@@ -38,7 +38,7 @@ export default function TabTwoScreen() {
                                 <FontAwesome
                                     name="refresh"
                                     size={25}
-                                    color={'gray'}
+                                    color={'#DADADA'}
                                     style={{marginRight: 15, opacity: pressed ? 0.5 : 1}}
                                 />
                             )}
